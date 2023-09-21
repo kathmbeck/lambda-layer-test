@@ -4,3 +4,6 @@
 
 [[plugins]]
   package = "netlify-plugin-cypress"
+
+[functions.lalala]
+path = "/ola"
