@@ -1,7 +1,7 @@
 export default (event, context) => {
-  console.log(123)
+
   return {
-    statusCode: 200,
+    statusCode: 400,
     body: JSON.stringify({ message: "Hello World" })
   }
 }
