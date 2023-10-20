@@ -1,7 +1,11 @@
-export default (event, context) => {
+import { Context } from "@netlify/functions"
 
-  return {
-    statusCode: 400,
-    body: JSON.stringify({ message: "Hello World" })
+export default async (req: Request, context: Context) => {
+  if (context.cookies.get("chocolate")) {
+    return new Response("Sorry, no more cookies for you")
   }
+
+  context.cookies.set("chocolate", "yummy")
+
+  return new Response("Here's a chocolate cookie! 🍪")
 }
