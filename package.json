@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@netlify/functions": "^2.0.2",
-    "@netlify/bitballoon-openapi": "1.0.21",
     "cookie": "^0.5.0",
     "cypress": "^10.0.3",
     "next": "^12.1.5",
