@@ -4,7 +4,7 @@ export default async (request : Request, context : Context) => {
   async function sendRewrite(variant : number) {
     const url = new URL(request.url)
     if (variant >= 0.5) {
-      return new URL(url.pathname,'https://main--funny-chaja-c344cc.netlify.app/')
+      return await fetch('https://main--funny-chaja-c344cc.netlify.app/')
     } else {
       return await fetch('https://ab--funny-chaja-c344cc.netlify.app/')
     }
