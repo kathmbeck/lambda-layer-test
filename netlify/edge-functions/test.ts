@@ -1,12 +1,12 @@
 import type {Context} from '@netlify/edge-functions'
 export default async (request : Request, context : Context) => {
   const variantFromCookie = context.cookies.get('variant')
-  function sendRewrite(variant : number) {
+  async function sendRewrite(variant : number) {
     const url = new URL(request.url)
     if (variant >= 0.5) {
-      return new URL(url.pathname,'https://main-branch--subdomain.netlify.app/')
+      return new URL(url.pathname,'https://main--funny-chaja-c344cc.netlify.app/')
     } else {
-      return new URL(url.pathname,'https://other-branch--subdomain.netlify.app/')
+      return await fetch('https://ab--funny-chaja-c344cc.netlify.app/')
     }
   }
   if (variantFromCookie) {
