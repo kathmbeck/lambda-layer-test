@@ -11,7 +11,8 @@ export default async () => {
               `<li>Hello at ${formatter.format(new Date())}</li>\n\n`
             )
           );
-          if (i++ >= 5) {
+          if (i++ >= 25) {
+            console.log("send")
             controller.enqueue(encoder.encode("</ol></body></html>"));
             controller.close();
             clearInterval(timer);
