@@ -12,6 +12,7 @@ export default async () => {
             )
           );
           if (i++ >= 100) {
+            console.log(`It's ${new Date()}, ${i}`)
             controller.enqueue(encoder.encode("</ol></body></html>"));
             controller.close();
             clearInterval(timer);
