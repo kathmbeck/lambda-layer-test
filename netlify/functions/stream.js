@@ -17,9 +17,12 @@ export default async () => {
             controller.close();
             clearInterval(timer);
           }
+          if (i === 10 ) {
+            console.log(`It's ${new Date()}, ${i}`)
+            throw new Error("Oops!");
+          }
         }, 1000);
       }
     });
-
     return new Response(body);
   };
