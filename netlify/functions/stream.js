@@ -19,7 +19,7 @@ export default async () => {
           }
           if (i === 5 ) {
             console.log(`It's ${new Date()}, ${i}`)
-            throw new Error("Oops!");
+            throw new Error("Oops! AHAHAHAHAHA");
           }
         }, 1000);
       }
