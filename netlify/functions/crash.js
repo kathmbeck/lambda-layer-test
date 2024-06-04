@@ -4,13 +4,13 @@ export default async (req, context) => {
     console.log("um(last_1m):( ( sum:ats.global.proxy.process.http.3xx_responses{group:global}.as_count() + sum:ats.global.proxy.process.http.2xx_responses{group:global}.as_count() ) / ( sum:ats.global.proxy.process.http.3xx_responses{group:global}.as_count() + sum:ats.global.proxy.process.http.2xx_responses{group:global}.as_count() + sum:ats.global")
     console.log({
         "Hello":"world",
-        "test":"something",
+        "this":"is",
         "long":"json",
-        "something":"else",
-        "more":"stuff",
+        "from":"the",
+        "console":"log",
         "blah":"blah",
         "another":"thing",
-        "and":"another",
+        "not":"the",
         "return":"statement",
         "okay":"bye"
      })
