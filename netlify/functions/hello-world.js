@@ -1,7 +1,6 @@
 export default async (req, context) => {
     console.log("hi hi hi")
     console.log("another log")
-    sleep(1000)
     console.log({
       "someJson":"loggy-log",
       "another":"log",
@@ -25,5 +24,7 @@ export default async (req, context) => {
   console.log(23918723918273912873912873918273981273982173981789127389273891732981371471625)
   console.time()
   console.log("ayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy")
+  console.log("remove sleep")
+  console.log("✨")
     return new Response("Helloooooooooo, world!");
   };
