@@ -1,6 +1,7 @@
 export default async () => {
     const encoder = new TextEncoder();
     const formatter = new Intl.DateTimeFormat("en", { timeStyle: "medium" });
+    console.log("hi hi hi")
     const body = new ReadableStream({
       start(controller) {
         controller.enqueue(encoder.encode("<html><body><ol>"));
