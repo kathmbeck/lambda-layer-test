@@ -1,7 +1,7 @@
 export default async (req, context) => {
     let seconds = 0;
     const intervalId = setInterval(() => {
-        console.log(seconds);
+        console.log("count", seconds);
         seconds++;
         if (seconds === 30) {
             clearInterval(intervalId);
