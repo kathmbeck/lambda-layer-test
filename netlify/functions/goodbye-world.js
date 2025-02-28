@@ -4,9 +4,7 @@ export default async function(req) {
   });
 
   const url = new URL(req.url);
-  console.log('This is my new function!') 
-   const largeLog = "A".repeat(300000)
-  console.log(largeLog)
-  console.log(largeLog)
+  console.log('This is my new function!!!') 
+  console.log('Goodbye!!!') 
   return new Response('goodbye world!!!!!!', { headers });
 }
