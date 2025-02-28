@@ -5,6 +5,6 @@ export default async function(req) {
 
   const url = new URL(req.url);
   console.log('This is my new function!!!') 
-  console.log('Goodbye!!! 41!') 
+  console.log('Goodbye!!! 38! second time ') 
   return new Response('goodbye world!!!!!!', { headers });
 }
