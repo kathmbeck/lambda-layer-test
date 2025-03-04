@@ -7,7 +7,7 @@ export default async function(req) {
   const currentTime = new Date().toISOString();
 
   console.log('This is my new function!!!');
-  console.log('Goodbye!!! 43 more logging');
+  console.log('Goodbye!!! 43 more logging logging');
   console.log(`Current Time: ${currentTime}`);
 
   return new Response(`goodbye world!!!!!!\nCurrent Time: ${currentTime}`, { headers });
