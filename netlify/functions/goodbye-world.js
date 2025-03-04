@@ -4,6 +4,7 @@ export default async function(req) {
   });
 
   const url = new URL(req.url);
+  console.log('This is not goodbye!');
   const currentTime = new Date().toISOString();
 
   return new Response(`goodbye world!!!!!!\nCurrent Time: ${currentTime}`, { headers });
