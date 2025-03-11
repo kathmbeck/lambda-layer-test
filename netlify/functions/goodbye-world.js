@@ -81,3 +81,8 @@ export default async function(req) {
 
   return new Response(`goodbye world!!!!!!\nCurrent Time: ${currentTime}`, { headers });
 }
+
+// Logs outside of the handler
+setTimeout(() => {
+  console.log("Outside handler: post-execution logs");
+}, 100);
