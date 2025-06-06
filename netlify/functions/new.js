@@ -11,7 +11,3 @@ export default function handler(request) {
     return Response.json("Hello world");
   });
 }
-
-export const config = {
-  path: "/*",
-};
