@@ -1,14 +1,15 @@
-import { trace, context } from "@opentelemetry/api";
+import { trace, context, propagation } from "@opentelemetry/api";
 import { wrapTracer } from "@opentelemetry/api/experimental";
 
 export default function handler(request) {
   const tracer = wrapTracer(trace.getTracer("example-tracer"));
   
-  // Create a new context with the request context
-  const ctx = context.active();
-  console.log("Initial context:", ctx);
+  // Extract context from request headers
+  const extractedContext = propagation.extract(context.active(), request.headers);
+  console.log("Initial context:", context.active());
+  console.log("Extracted context:", extractedContext);
   
-  return context.with(ctx, async () => {
+  return context.with(extractedContext, async () => {
     console.log("Context in async wrapper:", context.active());
     return tracer.withActiveSpan("hello worldddddd", async (span) => {
       console.log("Context in outer span:", context.active());
