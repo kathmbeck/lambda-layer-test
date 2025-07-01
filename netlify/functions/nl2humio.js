@@ -1,42 +1,41 @@
-// netlify/functions/nl2humio.js
-import { Configuration, OpenAIApi } from "openai";
+import OpenAI from "openai";
 
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
 
-/**
- * Expects POST { "query": "5xx errors last hour by region" }
- * Returns { "humioQL": "..." }
- */
-export async function handler(event, context) {
+export async function handler(event) {
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: "Method Not Allowed" };
+  }
+
+  let body;
   try {
-    if (event.httpMethod !== "POST") {
-      return { statusCode: 405, body: "Method Not Allowed" };
-    }
-    const { query } = JSON.parse(event.body || "{}");
-    if (!query) {
-      return { statusCode: 400, body: "Missing `query` in request body" };
-    }
+    body = JSON.parse(event.body);
+  } catch {
+    return { statusCode: 400, body: "Invalid JSON" };
+  }
 
-    // 1. Build prompt
-    const messages = [
-      {
-        role: "system",
-        content: "You are an expert SRE. Translate the following plain-English request into a Humio query.",
-      },
-      { role: "user", content: `Request: "${query}"` },
-    ];
+  const { query } = body;
+  if (!query || typeof query !== "string") {
+    return { statusCode: 400, body: "Missing `query` in request body" };
+  }
 
-    // 2. Call OpenAI
-    const resp = await openai.createChatCompletion({
+  const messages = [
+    {
+      role: "system",
+      content: "You are an expert SRE. Translate the following plain-English request into a Humio query.",
+    },
+    { role: "user", content: `Request: "${query}"` },
+  ];
+
+  try {
+    const resp = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       temperature: 0,
       messages,
     });
-
-    const humioQL = resp.data.choices[0].message.content.trim();
+    const humioQL = resp.choices[0].message.content.trim();
     return {
       statusCode: 200,
       body: JSON.stringify({ humioQL }),
