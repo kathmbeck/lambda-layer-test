@@ -2,7 +2,7 @@ export default async (req, context) => {
     console.log('Starting simple fetch test...')
   
     try {
-      // Simple fetch to a reliable API
+      // Simple fetch to a reliable API to test 
       console.log('Making simple fetch request...')
       const response = await fetch('https://api.github.com/zen')
       console.log('Response status:', response.status)
