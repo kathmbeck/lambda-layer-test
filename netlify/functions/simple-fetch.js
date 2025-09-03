@@ -5,8 +5,8 @@ export default async (req, context) => {
       // Simple fetch to a reliable API to test 
       console.log('Making simple fetch request...')
       const response = await fetch('https://api.github.com/zen')
-      console.log('Response status:', response.status)
-      console.log('Response headers:', Object.fromEntries(response.headers.entries()))
+      console.log('Response status is:', response.status)
+      console.log('Response headers are:', Object.fromEntries(response.headers.entries()))
       
       const text = await response.text()
       console.log('Response body (first 200 chars):', text.substring(0, 200))
