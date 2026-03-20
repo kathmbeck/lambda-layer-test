@@ -4,7 +4,7 @@ export default async (req, context) => {
     console.log({
       "someJson":"loggy-log",
       "another":"log",
-      "frogOnA":"logggggggggg",
+      "frogOnA":"logggggggg",
       "boblaw":"lawblog",
       "blahblah":"log",
       "something":"lalalalala"
