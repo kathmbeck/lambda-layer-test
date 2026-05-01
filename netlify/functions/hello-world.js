@@ -7,7 +7,7 @@ export default async (req, context) => {
       "frogOnA":"logggggggg",
       "boblaw":"lawblog",
       "blahblah":"log",
-      "something":"lalalalala"
+      "something":"lalalalalalalala"
    })
    console.log(context)
    console.log(req)
